@@ -1,0 +1,76 @@
+ 2.a) Write a program to Explore Text widget.
+
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Explore Text Widget',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Explore Text Widget'),
+          backgroundColor: Colors.blueAccent,
+        ),
+        body: const Center(
+          child: Text(
+            'Hello Flutter! Welcome to text styling.',
+            style: TextStyle(
+              fontSize: 24, // Sets text size
+              fontWeight: FontWeight.bold, // Makes text bold
+              color: Colors.blue, // Text color
+              letterSpacing: 1.5, // Space between letters
+              wordSpacing: 4, // Space between words
+              fontStyle: FontStyle.italic, // Italic style
+            ),
+            textAlign: TextAlign.center, // Center aligns the text
+          ),
+        ),
+      ),
+    );
+  }
+}
+__________________________________________________________________________________________________________________________________________________
+
+2.b) Write a program to Design a responsive UI that adapts to different screen sizes.
+
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(home: const ResponsivePage());
+  }
+}
+
+class ResponsivePage extends StatelessWidget {
+  const ResponsivePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    double w = MediaQuery.of(context).size.width;
+    return Scaffold(
+      appBar: AppBar(title: const Text('Simple Responsive UI')),
+      body: Center(
+        child: Container(
+          width: w < 600 ? w * 0.8 : 400,
+          padding: const EdgeInsets.all(16),
+          color: Colors.blueAccent,
+          child: const Text(
+            'This box adapts to screen size!',
+            style: TextStyle(fontSize: 18, color: Colors.white),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ),
+    );
+  }
+}
